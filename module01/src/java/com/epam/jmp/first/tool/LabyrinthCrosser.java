@@ -37,7 +37,7 @@ public class LabyrinthCrosser implements Crosser{
 				posY++;
 			}
 			path++;
-		} while (posY+1 < labyrinthSize || posX+1 < labyrinthSize || !labyrinthScheme.get(posY).get(posX).equals("e"));		
+		} while (posY+1 < labyrinthSize && posX+1 < labyrinthSize && !labyrinthScheme.get(posY).get(posX).equals("e"));		
 		return path;
 	}	
 }
