@@ -9,6 +9,7 @@ public class Car {
 	private List<Chair> chairs = null; 
 	private Engine engine = null;
 	private Coachwork coachwork = null;
+	
 	public List<Wheel> getWheels() {
 		return wheels;
 	}
