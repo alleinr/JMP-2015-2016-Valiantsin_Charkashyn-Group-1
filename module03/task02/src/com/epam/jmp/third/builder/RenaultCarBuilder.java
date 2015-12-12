@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.epam.jmp.third.model.Chair;
 import com.epam.jmp.third.model.Coachwork;
+import com.epam.jmp.third.model.Engine;
+import com.epam.jmp.third.model.SteeringWheel;
+import com.epam.jmp.third.model.Wheel;
 
 public class RenaultCarBuilder extends CarBuilder {
 
@@ -23,27 +26,36 @@ public class RenaultCarBuilder extends CarBuilder {
 
 	@Override
 	public void buildCoachwork() {
-		Coachwork c = new Coachwork();
-		c.setMaterial("Silver");
-		car.setCoachwork(c);		
+		Coachwork coachwork = new Coachwork();
+		coachwork.setMaterial("silver");
+		car.setCoachwork(coachwork);		
 	}
 
 	@Override
 	public void buildEngine() {
-		// TODO Auto-generated method stub
+		Engine engine = new Engine();
+		engine.setCylinders(6);
+		car.setEngine(engine);
 		
 	}
 
 	@Override
 	public void buildSteeringWheel() {
-		// TODO Auto-generated method stub
-		
+		SteeringWheel stWheel = new SteeringWheel();
+		stWheel.setType("round");
+		car.setSteeringWheel(stWheel);		
 	}
 
 	@Override
 	public void buildWheels() {
-		// TODO Auto-generated method stub
-		
+		int quantity = 4;
+		List<Wheel> wheels = new ArrayList<Wheel>(); 
+		Wheel wheel;
+		for (int i = 1; i < quantity; i++){
+			wheel = new Wheel();
+			wheel.setType("Bridgestone");
+			wheels.add(wheel);
+		}
+		car.setWheels(wheels);		
 	}
-
 }

@@ -41,6 +41,13 @@ public class Car {
 		this.coachwork = coachwork;
 	}
 	
+	public void print(){
+		System.out.println("Coachwork: " + coachwork.getMaterial() + "; " +
+							"Wheels: " + wheels.size() + "; " + 
+							"Chairs: " + chairs.size() + "; " + 
+							"Engine cylinders: " + engine.getCylinders() + "; " + 
+							"Steering wheel: " + steeringWheel.getType() + ".");
+	}
 	
 
 }

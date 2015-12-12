@@ -14,6 +14,10 @@ public abstract class CarBuilder {
 		this.car = car;
 	}
 	
+	public void createNewCar(){
+		car = new Car();
+	}
+	
 	public abstract void buildChairs();
 	public abstract void buildCoachwork();
 	public abstract void buildEngine();
