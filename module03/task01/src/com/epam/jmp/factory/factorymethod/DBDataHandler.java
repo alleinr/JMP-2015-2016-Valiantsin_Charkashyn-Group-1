@@ -1,34 +1,31 @@
 package com.epam.jmp.factory.factorymethod;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.epam.jmp.factory.model.Person;
+import com.epam.jmp.factory.model.DBResource;
 
 public class DBDataHandler extends AbstractDataHandler {
 
+	private static final String SQL_QUERY_WRITE_OBJECT = "";
+
 	@Override
-	public	void writePerson(Person person) {	
-		PreparedStatement pstmt = resource.connection.prepareStatement(WRITE_OBJECT_SQL);
+	public void writePerson(Person person) {
 
-	    // set input parameters
-	    pstmt.setString(1, className);
-	    pstmt.setObject(2, object);
-	    pstmt.executeUpdate();
-
-	    // get the generated key for the id
-	    ResultSet rs = pstmt.getGeneratedKeys();
-	    int id = -1;
-	    if (rs.next()) {
-	      id = rs.getInt(1);
-	    }
-
-	    rs.close();
-	    pstmt.close();
-	    System.out.println("writeJavaObject: done serializing: " + className);
+		PreparedStatement pstmt;
+		try {
+			pstmt = ((DBResource) resource).getConnection().prepareStatement(SQL_QUERY_WRITE_OBJECT);
+			pstmt.setObject(1, person);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public	Person readPerson() {
+	public Person readPerson() {
 		return null;
 	}
 
