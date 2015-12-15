@@ -3,8 +3,7 @@ package com.epam.jmp.factory.facade;
 import com.epam.jmp.factory.factorymethod.AbstractDataHandler;
 import com.epam.jmp.factory.factorymethod.FactoryMethod;
 import com.epam.jmp.factory.model.Person;
-
-import tool.ConsoleTool;
+import com.epam.jmp.factory.tool.ConsoleTool;
 
 public class Facade {
 	

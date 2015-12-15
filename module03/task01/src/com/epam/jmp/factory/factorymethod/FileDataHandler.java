@@ -1,12 +1,13 @@
 package com.epam.jmp.factory.factorymethod;
 
 import com.epam.jmp.factory.model.Person;
+import com.epam.jmp.factory.tool.SerializationTool;
 
 public class FileDataHandler extends AbstractDataHandler {
 
 	@Override
 	public void writePerson(Person person) {
-		// TODO Auto-generated method stub
+		new SerializationTool().serialize(person);
 		
 	}
 

@@ -5,20 +5,17 @@ import com.epam.jmp.factory.model.Person;
 public class DBDataHandler extends AbstractDataHandler {
 
 	@Override
-	public	void writePerson(Person person) {
-		// TODO Auto-generated method stub
+	public	void writePerson(Person person) {	
 		
 	}
 
 	@Override
 	public	Person readPerson() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Person readPerson(String name) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
