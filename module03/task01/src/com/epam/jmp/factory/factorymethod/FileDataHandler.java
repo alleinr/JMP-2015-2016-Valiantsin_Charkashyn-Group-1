@@ -7,13 +7,12 @@ public class FileDataHandler extends AbstractDataHandler {
 
 	@Override
 	public void writePerson(Person person) {
-		new SerializationTool().serialize(person);
-		
+		new SerializationTool().serialize(person);		
 	}
 
 	@Override
 	public Person readPerson() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
