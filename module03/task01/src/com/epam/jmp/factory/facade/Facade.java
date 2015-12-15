@@ -14,7 +14,7 @@ public class Facade {
 		String source = consoleTool.takeInput();		
 		AbstractDataHandler dataHandler = new FactoryMethod().getHandler(source);
 		
-		System.out.println("What do you want to do? A - read all entries (default), W - create new entry, R - read entry by name");
+		System.out.println("What do you want to do? A - read first entry (default), W - create new entry, R - read entry by name");
 		String action = consoleTool.takeInput();
 		
 		Person person = null;

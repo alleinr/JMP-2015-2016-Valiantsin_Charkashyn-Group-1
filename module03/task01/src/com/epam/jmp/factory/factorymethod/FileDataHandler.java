@@ -11,15 +11,14 @@ public class FileDataHandler extends AbstractDataHandler {
 	}
 
 	@Override
-	public Person readPerson() {
-		
-		return null;
+	public Person readPerson() {		
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Person readPerson(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		Person person = new SerializationTool().deserialize(name);
+		return person;
 	}
 
 }
