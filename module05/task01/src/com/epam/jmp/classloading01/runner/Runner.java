@@ -4,8 +4,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import com.epam.jmp.classloading01.tools.ChoiceHandler;
-import com.epam.jmp.classloading01.tools.Output;
+import com.epam.jmp.classloading01.tool.ChoiceHandler;
+import com.epam.jmp.classloading01.tool.Output;
 
 public class Runner {
 

@@ -11,17 +11,24 @@ public class CustomClassLoader {
 
 	private final static Logger logger = Logger.getLogger(CustomClassLoader.class);
 
-	public void loadClass(File file) {
-		Class<?> classToLoad = null;
-		try {
-			URL url = file.toURI().toURL();
-			URL[] urls = { url };
-			URLClassLoader child = new URLClassLoader(urls, this.getClass().getClassLoader());
-			classToLoad = Class.forName("oracle.jdbc.driver.OracleDriver", true, child);
-			logger.info("Class details: " + classToLoad.toString());
-		} catch (ClassNotFoundException | MalformedURLException e) {
-			logger.error("Exception occurred! Details: " + e);
-		}		
-	}
+	private Class<?> classToLoad = null;
+	private URLClassLoader loader = null;
 
+	public void loadClass(File file) {
+		if (loader == null) {
+			try {
+				URL url = file.toURI().toURL();
+				URL[] urls = { url };
+				loader = new URLClassLoader(urls, this.getClass().getClassLoader());
+			} catch (MalformedURLException e) {
+				logger.error("Exception occurred! Details: " + e);
+			}
+		}
+		try {
+			classToLoad = Class.forName("oracle.jdbc.driver.OracleDriver", true, loader);
+			logger.info("Class details: " + classToLoad.toString());
+		} catch (ClassNotFoundException e) {
+			logger.error("Exception occurred! Details: " + e);
+		} 
+	}
 }

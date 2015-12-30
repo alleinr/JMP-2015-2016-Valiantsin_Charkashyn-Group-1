@@ -1,4 +1,4 @@
-package com.epam.jmp.classloading01.tools;
+package com.epam.jmp.classloading01.tool;
 
 import java.io.File;
 import com.epam.jmp.classloading01.loading.CustomClassLoader;
