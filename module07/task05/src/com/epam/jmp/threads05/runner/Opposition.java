@@ -9,11 +9,22 @@ public class Opposition {
 		private int count = 10;
 
 		public void increment() {
-			count++;
+			synchronized (this) {				
+				count++;
+				notify();
+			}
 		}
 
 		public void decrement() {
-			count--;
+			synchronized (this) {
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				count--;
+			}
+
 		}
 
 		public int get() {
@@ -69,8 +80,8 @@ public class Opposition {
 
 	private void start() {
 		Counter counter = new Counter();
-		t1 = new Thread(new Wrestler(counter, true));
-		t2 = new Thread(new Wrestler(counter, false));
+		t1 = new Thread(new Wrestler(counter, false));
+		t2 = new Thread(new Wrestler(counter, true));
 		t1.start();
 		t2.start();
 		try {
