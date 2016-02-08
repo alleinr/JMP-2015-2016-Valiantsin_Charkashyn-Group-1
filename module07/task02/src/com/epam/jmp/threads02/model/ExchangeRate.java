@@ -13,6 +13,14 @@ public class ExchangeRate {
 	private String currencysell;
 	private int rate;
 
+	public ExchangeRate(String id, String currencybuy, String currencysell, int rate) {
+		super();
+		this.id = id;
+		this.currencybuy = currencybuy;
+		this.currencysell = currencysell;
+		this.rate = rate;
+	}
+
 	public ExchangeRate() {
 
 	}

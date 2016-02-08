@@ -2,8 +2,6 @@ package com.epam.jmp.threads02.tool;
 
 import java.io.File;
 
-import com.epam.jmp.threads02.tool.parsing.JaxbParser;
-
 public class DataThreadUploader extends Thread{
 	
 	private Object data;	
