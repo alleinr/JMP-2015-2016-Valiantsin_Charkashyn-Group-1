@@ -5,17 +5,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "currency")
-@XmlType(propOrder = {"id","name","exchRate"})
+@XmlType(propOrder = {"id","name", "amount"})
 public class Currency {
 	
 	private String id;
 	private String name;
-	private int exchRate;
+	private int amount;
 	
-	public Currency(String id, String name, int exchRate) {		
+	public Currency(String id, String name, int amount) {		
 		this.id = id;
 		this.name = name;
-		this.exchRate = exchRate;
+		this.amount = amount;
 	}
 	
 	public Currency(){
@@ -36,17 +36,18 @@ public class Currency {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getExchRate() {
-		return exchRate;
+
+	public int getAmount() {
+		return amount;
 	}
 	@XmlElement
-	public void setExchRate(int exchRate) {
-		this.exchRate = exchRate;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	@Override
 	public String toString() {
-		return "Currency [id=" + id + ", name=" + name + ", exchRate=" + exchRate + "]";
+		return "Currency [id=" + id + ", name=" + name + "]";
 	}	
 	
 	

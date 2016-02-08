@@ -7,19 +7,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "clients")
 public class Clients {
-	private List<Person> clients;
+	
+	private List<Person> clientList;
+	
+	private static Clients clients;
+	private Clients() {		
+	}
+	
+	public static Clients getInstance(){
+		if (clients == null){
+			synchronized (Clients.class){
+				if (clients == null){
+					clients = new Clients();
+				}
+			}
+		}
+		return clients;
+	}
 	
 	@XmlElement(name = "person")
 	public List<Person> getClients() {
-		return clients;
+		return clientList;
 	}
 	public void setClients(List<Person> clients) {
-		this.clients = clients;
+		this.clientList = clients;
 	}
 	
 	@Override
 	public String toString() {
-		return "Clients [clients=" + clients + "]";
+		return "Clients [clients=" + clientList + "]";
 	}
 	
 	

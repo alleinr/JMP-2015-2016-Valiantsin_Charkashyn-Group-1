@@ -8,19 +8,34 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "currencies")
 public class Currencies {
 
-	private List<Currency> currencies;
+	private List<Currency> currenciesList;
+	
+	private static Currencies currencies;
+	private Currencies() {		
+	}
+	
+	public static Currencies getInstance(){
+		if (currencies == null){
+			synchronized (Currencies.class){
+				if (currencies == null){
+					currencies = new Currencies();
+				}
+			}
+		}
+		return currencies;
+	}
 	
 	@XmlElement(name = "currency")
 	public List<Currency> getCurrencies() {
-		return currencies;
+		return currenciesList;
 	}
-	public void setCurrencies(List<Currency> currencies) {
-		this.currencies = currencies;
+	public void setCurrencies(List<Currency> currenciesList) {
+		this.currenciesList = currenciesList;
 	}
 	
 	@Override
 	public String toString() {
-		return "Currencies [currencies=" + currencies + "]";
+		return "Currencies [currencies=" + currenciesList + "]";
 	}
 	
 	

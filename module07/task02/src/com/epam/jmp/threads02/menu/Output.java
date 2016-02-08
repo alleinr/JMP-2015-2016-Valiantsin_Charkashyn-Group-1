@@ -8,7 +8,7 @@ public class Output {
 
 	
 	public String init() {
-		System.out.println("Hi! What do you want? 1 - reload bank info; 2 - create account; 3 - create user; 4 - exchange currency");
+		System.out.println("Hi! What do you want? 1 - reload all info; 2 - create currency; 3 - create exchange rate; 4 - exchange currency");
 		return takeInput();
 	}
 	
