@@ -1,37 +1,57 @@
 package com.epam.jmp.threads01.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Bank {
 	
-	private List<Account> accounts;
-	private List<Person> clients;
-	private List<Currency> currencies;
+	private static Bank bank;
+
+	private Clients clients;
+	private Accounts accounts;
+	private Currencies currencies;
 	
-	public Bank(){
-		accounts = new ArrayList<>();
-		clients = new ArrayList<>();
-		currencies = new ArrayList<>();
+	private Bank() {		
 	}
 	
-	public List<Account> getAccounts() {
-		return accounts;
+	public static Bank getInstance(){
+		if (bank == null){
+			synchronized (Bank.class){
+				if (bank == null){
+					bank = new Bank();
+				}
+			}
+		}
+		return bank;
 	}
-	public void setAccounts(List<Account> accounts) {
-		this.accounts = accounts;
-	}
-	public List<Person> getClients() {
+
+	public Clients getClients() {
 		return clients;
 	}
-	public void setClients(List<Person> clients) {
+
+	public void setClients(Clients clients) {
 		this.clients = clients;
 	}
-	public List<Currency> getCurrencies() {
+
+	public Accounts getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(Accounts accounts) {
+		this.accounts = accounts;
+	}
+
+	public Currencies getCurrencies() {
 		return currencies;
 	}
-	public void setCurrencies(List<Currency> currencies) {
+
+	public void setCurrencies(Currencies currencies) {
 		this.currencies = currencies;
 	}
+
 	
+
+	@Override
+	public String toString() {
+		return "Bank: [accounts=" + accounts.toString() + ",\n clients=" + clients.toString() + ",\n currencies="
+				+ currencies.toString() + "]";
+	}
+
 }

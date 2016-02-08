@@ -8,25 +8,29 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "curId", "ownerId", "amount" })
 public class Account {
 
-	private int id;
+	private String id;
 	private String curId;
-	private int ownerId;
+	private String ownerId;
 	private int amount;
 
-	public Account(int id, String curId, int ownerId, int amount) {
+	public Account(String id, String curId, String ownerId, int amount) {
 		super();
 		this.id = id;
 		this.curId = curId;
 		this.ownerId = ownerId;
 		this.amount = amount;
 	}
+	
+	public Account(){
+		
+	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
 	@XmlElement
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -39,12 +43,12 @@ public class Account {
 		this.curId = curId;
 	}
 
-	public int getOwnerId() {
+	public String getOwnerId() {
 		return ownerId;
 	}
 
 	@XmlElement
-	public void setOwnerId(int ownerId) {
+	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
 	}
 
@@ -56,5 +60,12 @@ public class Account {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", curId=" + curId + ", ownerId=" + ownerId + ", amount=" + amount + "]";
+	}
+	
+	
 
 }

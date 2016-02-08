@@ -1,4 +1,4 @@
-package com.epam.jmp.threads01.tool;
+package com.epam.jmp.threads01.tool.parsing;
 
 import java.io.File;
 
@@ -26,7 +26,6 @@ public class JaxbParser implements Parser {
 
 	@Override
 	public void saveObject(File file, Object o) {
-
 		JAXBContext context;
 		try {
 			context = JAXBContext.newInstance(o.getClass());

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+	<person>
+		<id>01</id>
+		<firstName>Alice</firstName>
+		<lastName>Anderssen</lastName>
+		<status>active</status>
+	</person>
+	<person>
+		<id>02</id>
+		<lastName>Bobo</lastName>
+		<firstName>Bert</firstName>
+		<status>frozen</status>
+	</person>
+</clients>

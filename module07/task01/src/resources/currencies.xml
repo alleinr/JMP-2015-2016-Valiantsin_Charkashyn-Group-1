@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<currencies>
+        <currency>
+        	<id>USD</id>
+            <name>American Dollar</name>
+            <exchRate>21000</exchRate>
+        </currency>
+        <person>
+        	<id>USD</id>
+            <name>Russian Rubl</name>
+            <exchRate>300</exchRate>
+        </person>
+</currencies>

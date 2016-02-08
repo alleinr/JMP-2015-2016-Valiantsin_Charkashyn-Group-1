@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+	<account>
+		<id>01</id>
+		<curId>01</curId>
+		<ownerId>02</ownerId>
+		<amount>1500</amount>
+	</account>
+	<account>
+		<id>02</id>
+		<curId>03</curId>
+		<ownerId>01</ownerId>
+		<amount>17000</amount>
+	</account>
+</accounts>

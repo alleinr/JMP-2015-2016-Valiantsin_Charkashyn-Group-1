@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "firstName", "lastName", "status" })
 public class Person {
 
-	private int id;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String status;
 
-	public Person(int id, String firstName, String lastName, String status) {
+	public Person(String id, String firstName, String lastName, String status) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -25,12 +25,12 @@ public class Person {
 
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
 	@XmlElement
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -60,5 +60,12 @@ public class Person {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", status=" + status + "]";
+	}
+	
+	
 
 }

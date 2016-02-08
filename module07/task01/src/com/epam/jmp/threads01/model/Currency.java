@@ -42,5 +42,12 @@ public class Currency {
 	@XmlElement
 	public void setExchRate(int exchRate) {
 		this.exchRate = exchRate;
+	}
+
+	@Override
+	public String toString() {
+		return "Currency [id=" + id + ", name=" + name + ", exchRate=" + exchRate + "]";
 	}	
+	
+	
 }
