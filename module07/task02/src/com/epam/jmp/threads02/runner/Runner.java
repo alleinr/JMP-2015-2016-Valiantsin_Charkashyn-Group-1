@@ -10,7 +10,11 @@ public class Runner {
 		do {			
 			Output out = new Output();
 			choice = out.init();
+			try{
 			ChoiceHandler.handleTheChoice(choice);
+			} catch (IllegalArgumentException e){
+				System.out.println(e);
+			}
 			System.out.println("Wanna try again? no - exit");
 			choice = out.takeInput();
 		} while (!choice.equals("no"));

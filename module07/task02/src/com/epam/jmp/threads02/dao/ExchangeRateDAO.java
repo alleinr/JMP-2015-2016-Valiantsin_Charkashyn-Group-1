@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import com.epam.jmp.threads02.model.ExchangeRate;
@@ -24,8 +25,18 @@ public class ExchangeRateDAO implements DAO{
 			e.printStackTrace();
 		}
 
-		return rates.getExchangeRates();		
-		
+		return rates.getExchangeRates();			
+	}
+	
+	public void saveObject(Object o) {
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance(o.getClass());
+			Marshaller marshaller = context.createMarshaller();
+			marshaller.marshal(o, new File("src/resources/rates.xml"));
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

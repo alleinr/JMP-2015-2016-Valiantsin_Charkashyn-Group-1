@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rates>
+	<rate>
+		<id>01</id>
+		<currencybuy>USD</currencybuy>
+		<currencysell>EUR</currencysell>
+		<rate>0.98</rate>
+	</rate>
+	<rate>
+		<id>02</id>
+		<currencybuy>EUR</currencybuy>
+		<currencysell>USD</currencysell>
+		<rate>1.1</rate>
+	</rate>
+</rates>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<currencies>
+        <currency>
+        	<id>USD</id>
+            <name>American Dollar</name>
+            <amount>21000</amount>
+        </currency>
+        <currency>
+        	<id>EUR</id>
+            <name>EURO</name>
+            <amount>300</amount>
+        </currency>
+</currencies>

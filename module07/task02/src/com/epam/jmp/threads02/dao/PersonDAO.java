@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import com.epam.jmp.threads02.model.Clients;
@@ -27,7 +28,17 @@ public class PersonDAO implements DAO {
 		}
 
 		return clients.getClients();
-
+	}
+	
+	public void saveObject(Object o) {
+		JAXBContext context;
+		try {
+			context = JAXBContext.newInstance(o.getClass());
+			Marshaller marshaller = context.createMarshaller();
+			marshaller.marshal(o, new File("src/resources/clients.xml"));
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
