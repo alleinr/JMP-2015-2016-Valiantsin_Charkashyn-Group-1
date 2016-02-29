@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="newsService" class="com.epam.testapp.service.NewsServiceImpl">
+		<property name="newsDAO" ref="newsDAOJDBC" />
+	</bean>
+<!-- 	<bean id="newsDAOHibernate" class="com.epam.testapp.database.NewsDAOImplHibernate"> -->
+<!-- 		<property name="sessionFactory" ref="sessionFactory" /> -->
+<!-- 	</bean> -->
+	<bean id="newsDAOJDBC" class="com.epam.testapp.database.NewsDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+<!-- 	<bean id="newsDAOJPA" class="com.epam.testapp.database.NewsDAOImplJPA" /> -->
+</beans>
