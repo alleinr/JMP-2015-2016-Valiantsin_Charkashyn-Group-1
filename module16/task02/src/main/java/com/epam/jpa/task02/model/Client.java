@@ -3,7 +3,7 @@ package com.epam.jpa.task02.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import org.hibernate.annotations.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name = "client")
-@NamedQuery(name = "client.getAll", query = "SELECT c from client c")
+@NamedQuery(name = "client.getAll", query = "SELECT c from Client c")
 public class Client implements Serializable {
 
 	/**
@@ -33,7 +35,11 @@ public class Client implements Serializable {
 	private String firstName;
 	@Column(name = "LASTNAME")
 	private String lastName;
+	
 	@Column(name = "ACCOUNTSLIST")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
+	@Cascade({CascadeType.SAVE_UPDATE})
+	@PrimaryKeyJoinColumn
 	private List<Account> accountLists;
 	public String getId() {
 		return id;
@@ -54,8 +60,6 @@ public class Client implements Serializable {
 		this.lastName = lastName;
 	}
 	
-	@OneToMany(mappedBy="client", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
 	public List<Account> getAccountLists() {
 		return accountLists;
 	}

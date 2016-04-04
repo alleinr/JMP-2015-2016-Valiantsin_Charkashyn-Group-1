@@ -6,8 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Component;
+
 import com.epam.jpa.task02.model.Client;
 
+@Component("clientDAO")
 public class ClientDAO {
 	public EntityManager em = Persistence.createEntityManagerFactory("dbconnect").createEntityManager();
 	 

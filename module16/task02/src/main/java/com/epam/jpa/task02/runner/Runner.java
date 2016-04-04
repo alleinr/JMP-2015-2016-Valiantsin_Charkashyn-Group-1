@@ -12,8 +12,8 @@ public class Runner {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"hconf.xml");
-		AccountService accounts = ctx.getBean(AccountService.class);
-		ClientService clients = ctx.getBean(ClientService.class);
+		AccountService accounts = ctx.getBean("accountService", AccountService.class);
+		ClientService clients = ctx.getBean("clientService", ClientService.class);
 		String choice;
 
 		do {
