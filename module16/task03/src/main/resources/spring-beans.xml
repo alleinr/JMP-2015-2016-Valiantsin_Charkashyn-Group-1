@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="handler" class="com.epam.jpa.task03.menu.ChoiceHandler">
+		<property name="currencyDAO" ref="currencyDAO" />
+		<property name="personDAO" ref="personDAO" />
+		<property name="accountDAO" ref="accountDAO" />
+	</bean>
+
+	<bean id="personDAO" class="com.epam.jpa.task03.dao.PersonDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="currencyDAO" class="com.epam.jpa.task03.dao.CurrencyDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="accountDAO" class="com.epam.jpa.task03.dao.AccountDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem://adb" />
+		<property name="username" value="sa" />
+		<property name="password" value=""/>	
+	</bean>
+
+</beans>
