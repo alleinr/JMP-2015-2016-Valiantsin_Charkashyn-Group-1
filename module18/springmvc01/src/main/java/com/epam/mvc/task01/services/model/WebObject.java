@@ -1,8 +1,23 @@
 package com.epam.mvc.task01.services.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "WEBOBJECT")
 public class WebObject {
+	
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
+	@Column(name = "NAME")
 	private String name;
+	@Column(name = "STUFF")
 	private String stuff;
 
 	public String getId() {

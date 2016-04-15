@@ -7,8 +7,8 @@ Menu
             <a href="${homeUrl}">Home</a>
         </li>
         <li>
-            <spring:url value="/about" var="aboutUrl" htmlEscape="true"/>
-            <a href="${aboutUrl}">About</a>
+            <spring:url value="/new" var="newUrl" htmlEscape="true"/>
+            <a href="${newUrl}">New</a>
         </li>
     </ul>
 </div>

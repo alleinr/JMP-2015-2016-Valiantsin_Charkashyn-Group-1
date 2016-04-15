@@ -1,6 +1,5 @@
 package com.epam.mvc.task01.dao;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,13 +12,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.epam.mvc.task01.services.model.WebObject;
 
-@Qualifier("jpa")
 @Transactional
-public class WebObjectDAOJPAImpl implements WebObjectDAO{
+public class WebObjectDAOJPAImpl implements WebObjectDAO {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
 	public WebObject create(WebObject webObject) {
 		entityManager.persist(webObject);
 		entityManager.flush();
@@ -31,8 +37,7 @@ public class WebObjectDAOJPAImpl implements WebObjectDAO{
 	}
 
 	public List<WebObject> getAll() {
-		TypedQuery<WebObject> typedQuery = entityManager.createQuery(
-				ProjectConstant.JPQL_FIND_ALL_QUERY, WebObject.class);
+		TypedQuery<WebObject> typedQuery = entityManager.createQuery("SELECT o FROM PUBLIC.WEBOBJECT o", WebObject.class);
 		return typedQuery.getResultList();
 	}
 
@@ -42,7 +47,7 @@ public class WebObjectDAOJPAImpl implements WebObjectDAO{
 	}
 
 	public void remove(String id) {
-		Query query = entityManager.createQuery(ProjectConstant.NQL_REMOVE_QUERY);
+		Query query = entityManager.createQuery("delete from PUBLIC.WEBOBJECT o where o.id in (:id)");
 		query.setParameter("id", id);
 		query.executeUpdate();
 	}
